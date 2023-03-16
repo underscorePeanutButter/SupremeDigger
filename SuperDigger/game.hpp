@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 
-bool init();
-void cleanUp();
+bool initGame();
+void cleanUpGame();
 
-bool update(const Uint8 *keyboardState);
-bool draw(SDL_Renderer *renderer);
+bool updateGame(const Uint8 *keyboardState);
+bool drawGame(SDL_Renderer *renderer);
 
 #endif

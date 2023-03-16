@@ -2,6 +2,8 @@
 
 #include <cstdio>
 #include <SDL2/SDL.h>
+
+#include "game.hpp"
 using namespace std;
 
 SDL_Window *window;
@@ -28,8 +30,13 @@ int main() {
             }
         }
         
+        const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
+        updateGame(keyboardState);
+        
         SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
         SDL_RenderClear(renderer);
+        
+        drawGame(renderer);
         
         SDL_RenderPresent(renderer);
     }
@@ -50,6 +57,11 @@ bool init() {
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (renderer == NULL) {
         printf("Renderer creation failed.\n");
+        return false;
+    }
+    
+    if (!initGame()) {
+        printf("Game initialization failed.\n");
         return false;
     }
     
