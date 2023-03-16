@@ -12,6 +12,7 @@
 		940FC30A29C2DC3000C88286 /* digger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940FC30829C2DC3000C88286 /* digger.cpp */; };
 		940FC30D29C2E08D00C88286 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940FC30B29C2E08D00C88286 /* game.cpp */; };
 		940FC31029C2E96D00C88286 /* block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940FC30E29C2E96D00C88286 /* block.cpp */; };
+		940FC31329C30B9B00C88286 /* constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940FC31129C30B9B00C88286 /* constants.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		940FC30C29C2E08D00C88286 /* game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = game.hpp; sourceTree = "<group>"; };
 		940FC30E29C2E96D00C88286 /* block.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = block.cpp; sourceTree = "<group>"; };
 		940FC30F29C2E96D00C88286 /* block.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = block.hpp; sourceTree = "<group>"; };
+		940FC31129C30B9B00C88286 /* constants.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = constants.cpp; sourceTree = "<group>"; };
+		940FC31229C30B9B00C88286 /* constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = constants.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,8 @@
 				940FC30B29C2E08D00C88286 /* game.cpp */,
 				940FC30E29C2E96D00C88286 /* block.cpp */,
 				940FC30F29C2E96D00C88286 /* block.hpp */,
+				940FC31129C30B9B00C88286 /* constants.cpp */,
+				940FC31229C30B9B00C88286 /* constants.hpp */,
 				940FC30C29C2E08D00C88286 /* game.hpp */,
 				940FC30829C2DC3000C88286 /* digger.cpp */,
 				940FC30929C2DC3000C88286 /* digger.hpp */,
@@ -151,6 +156,7 @@
 				940FC2FE29C2D75900C88286 /* main.cpp in Sources */,
 				940FC31029C2E96D00C88286 /* block.cpp in Sources */,
 				940FC30A29C2DC3000C88286 /* digger.cpp in Sources */,
+				940FC31329C30B9B00C88286 /* constants.cpp in Sources */,
 				940FC30D29C2E08D00C88286 /* game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -43,7 +43,7 @@ void Digger::stop() {
 }
 
 void Digger::draw(SDL_Renderer *renderer) {
-    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+    SDL_SetRenderDrawColor(renderer, _color->r, _color->g, _color->b, _color->a);
     SDL_Rect diggerRect = { static_cast<int>(_x), static_cast<int>(_y), _WIDTH, _HEIGHT };
     
     SDL_RenderFillRect(renderer, &diggerRect);

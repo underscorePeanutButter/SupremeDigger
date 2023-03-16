@@ -4,10 +4,13 @@
 #include <cstdio>
 #include <SDL2/SDL.h>
 
+#include "constants.hpp"
+using namespace std;
+
 class Digger {
 private:
-    const int _WIDTH = 16;
-    const int _HEIGHT = 16;
+    const int _WIDTH = TILE_SIZE;
+    const int _HEIGHT = TILE_SIZE;
     
     double _x;
     double _y;
@@ -21,12 +24,12 @@ private:
     double _battery = 100;
     
     // movement speed
-    double groundSpeed = 1;
-    double airSpeed = 0.75;
-    double digSpeed = 0.5;
+    double _groundSpeed = 1;
+    double _airSpeed = 0.75;
+    double _digSpeed = 0.5;
     
     // appearance
-    SDL_Color color = { 0xFF, 0x00, 0x00, 0xFF };
+    const SDL_Color *_color = &RED;
     
 public:
     Digger();
