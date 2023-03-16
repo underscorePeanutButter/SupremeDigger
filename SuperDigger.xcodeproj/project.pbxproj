@@ -11,6 +11,7 @@
 		940FC30629C2D77F00C88286 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 940FC30529C2D77F00C88286 /* SDL2.framework */; };
 		940FC30A29C2DC3000C88286 /* digger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940FC30829C2DC3000C88286 /* digger.cpp */; };
 		940FC30D29C2E08D00C88286 /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940FC30B29C2E08D00C88286 /* game.cpp */; };
+		940FC31029C2E96D00C88286 /* block.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 940FC30E29C2E96D00C88286 /* block.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		940FC30929C2DC3000C88286 /* digger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = digger.hpp; sourceTree = "<group>"; };
 		940FC30B29C2E08D00C88286 /* game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 		940FC30C29C2E08D00C88286 /* game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = game.hpp; sourceTree = "<group>"; };
+		940FC30E29C2E96D00C88286 /* block.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = block.cpp; sourceTree = "<group>"; };
+		940FC30F29C2E96D00C88286 /* block.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = block.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 				940FC30729C2DBB800C88286 /* map.txt */,
 				940FC2FD29C2D75900C88286 /* main.cpp */,
 				940FC30B29C2E08D00C88286 /* game.cpp */,
+				940FC30E29C2E96D00C88286 /* block.cpp */,
+				940FC30F29C2E96D00C88286 /* block.hpp */,
 				940FC30C29C2E08D00C88286 /* game.hpp */,
 				940FC30829C2DC3000C88286 /* digger.cpp */,
 				940FC30929C2DC3000C88286 /* digger.hpp */,
@@ -144,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				940FC2FE29C2D75900C88286 /* main.cpp in Sources */,
+				940FC31029C2E96D00C88286 /* block.cpp in Sources */,
 				940FC30A29C2DC3000C88286 /* digger.cpp in Sources */,
 				940FC30D29C2E08D00C88286 /* game.cpp in Sources */,
 			);

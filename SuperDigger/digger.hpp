@@ -11,21 +11,27 @@ private:
     
     double _x;
     double _y;
-    double _vX;
-    double _vY;
+    double _vX = 0;
+    double _vY = 0;
     
     // available power when underground (powered by solar)
     const double _CHARGE_SPEED = 10;
     
-    double _maxBattery;
-    double _battery;
+    double _maxBattery = 100;
+    double _battery = 100;
     
     // movement speed
     double groundSpeed = 1;
     double airSpeed = 0.75;
     double digSpeed = 0.5;
     
+    // appearance
+    SDL_Color color = { 0xFF, 0x00, 0x00, 0xFF };
+    
 public:
+    Digger();
+    Digger(int x, int y);
+    
     void setX(double x);
     void setY(double y);
     
@@ -35,7 +41,7 @@ public:
     void accelerate(double x, double y);
     void stop();
     
-    void drawDigger(SDL_Renderer *renderer);
+    void draw(SDL_Renderer *renderer);
 };
 
 #endif
