@@ -1,3 +1,5 @@
+#include <cstdlib>
+
 #include "block.hpp"
 
 // never use this
@@ -22,6 +24,45 @@ void Block::draw(SDL_Renderer *renderer) {
 
 Map::Map() {
     
+}
+
+bool shouldGenerate(int testX, int testY, double spawnChance) {
+    int percentage = rand() % 100;
+    spawnChance *= (testY / (static_cast<double>(MAP_HEIGHT) - GROUND_HEIGHT)) * 100;
+    
+    if (spawnChance > percentage) {
+        return true;
+    }
+    
+    return false;
+}
+
+bool Map::generateMap() {
+    // generate a new map
+    const int MIN_SPAWN_CHANCES = 100;
+    
+    const double COAL_SPAWN_CHANCE = 1;
+    const int MIN_COAL_SEEDS = 30;
+    
+    const double SILVER_SPAWN_CHANCE = 0.5;
+    const int MIN_SILVER_SEEDS = 20;
+    
+    const double GOLD_SPAWN_CHANCE = 0.25;
+    const int MIN_GOLD_SEEDS = 10;
+    
+    const double DIAMOND_SPAWN_CHANCE = 0.1;
+    const int MIN_DIAMOND_SEEDS = 5;
+    
+    // generate coal
+    int numCoalSeeds = 0;
+    for (int i = 0; numCoalSeeds < MIN_COAL_SEEDS || i < MIN_SPAWN_CHANCES; i++) {
+        int testX = rand() % MAP_WIDTH;
+        int testY = rand() % (MAP_HEIGHT - GROUND_HEIGHT) + GROUND_HEIGHT;
+        
+        bool generating = shouldGenerate(testX, testY, COAL_SPAWN_CHANCE);
+    }
+    
+    return true;
 }
 
 bool Map::loadMap(string filename) {

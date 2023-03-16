@@ -9,6 +9,8 @@
 
 extern const int TILE_SIZE;
 
+extern const int GROUND_HEIGHT;
+
 extern const SDL_Color RED;
 extern const SDL_Color GREEN;
 extern const SDL_Color BLUE;

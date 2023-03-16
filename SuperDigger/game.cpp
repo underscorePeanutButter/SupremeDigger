@@ -1,7 +1,10 @@
 #include <cstdio>
+#include <cstdlib>
+#include <ctime>
 
 #include "game.hpp"
 #include "digger.hpp"
+#include "block.hpp"
 using namespace std;
 
 Digger player;
@@ -22,6 +25,11 @@ bool drawGame(SDL_Renderer *renderer) {
 
 // called at launch. initialize game objects.
 bool initGame() {
+    srand(static_cast<unsigned int>(time(NULL)));
+    
+    Map newMap;
+    newMap.generateMap();
+    
     player.setX(0);
     player.setY(0);
     

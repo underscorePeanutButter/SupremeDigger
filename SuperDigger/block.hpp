@@ -43,12 +43,15 @@ class Map {
 private:
     const int _WIDTH = MAP_WIDTH;
     const int _HEIGHT = MAP_HEIGHT;
+    const int _GROUND_HEIGHT = GROUND_HEIGHT;
     
     enum TILE_TYPE _rawMap[MAP_HEIGHT][MAP_WIDTH];   // store all map data read from map file
     Block _map[MAP_HEIGHT][MAP_WIDTH];               // store the map as block objects
     
 public:
     Map();
+    
+    bool generateMap();
     
     bool loadMap(string filename);
     bool processMap();
