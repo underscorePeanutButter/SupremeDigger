@@ -1,7 +1,6 @@
 #ifndef constants_hpp
 #define constants_hpp
 
-#include <stdio.h>
 #include <SDL2/SDL.h>
 
 #define MAP_WIDTH 50
@@ -14,5 +13,7 @@ extern const int GROUND_HEIGHT;
 extern const SDL_Color RED;
 extern const SDL_Color GREEN;
 extern const SDL_Color BLUE;
+extern const SDL_Color BROWN;
+extern const SDL_Color DARK_GREY;
 
 #endif

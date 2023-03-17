@@ -31,7 +31,6 @@
 		940FC2FA29C2D75900C88286 /* SuperDigger */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SuperDigger; sourceTree = BUILT_PRODUCTS_DIR; };
 		940FC2FD29C2D75900C88286 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		940FC30529C2D77F00C88286 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
-		940FC30729C2DBB800C88286 /* map.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = map.txt; sourceTree = "<group>"; };
 		940FC30829C2DC3000C88286 /* digger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = digger.cpp; sourceTree = "<group>"; };
 		940FC30929C2DC3000C88286 /* digger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = digger.hpp; sourceTree = "<group>"; };
 		940FC30B29C2E08D00C88286 /* game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
@@ -74,14 +73,13 @@
 		940FC2FC29C2D75900C88286 /* SuperDigger */ = {
 			isa = PBXGroup;
 			children = (
-				940FC30729C2DBB800C88286 /* map.txt */,
 				940FC2FD29C2D75900C88286 /* main.cpp */,
 				940FC30B29C2E08D00C88286 /* game.cpp */,
+				940FC30C29C2E08D00C88286 /* game.hpp */,
 				940FC30E29C2E96D00C88286 /* block.cpp */,
 				940FC30F29C2E96D00C88286 /* block.hpp */,
 				940FC31129C30B9B00C88286 /* constants.cpp */,
 				940FC31229C30B9B00C88286 /* constants.hpp */,
-				940FC30C29C2E08D00C88286 /* game.hpp */,
 				940FC30829C2DC3000C88286 /* digger.cpp */,
 				940FC30929C2DC3000C88286 /* digger.hpp */,
 			);

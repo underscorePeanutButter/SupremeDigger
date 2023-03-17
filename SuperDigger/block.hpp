@@ -1,9 +1,10 @@
 #ifndef block_hpp
 #define block_hpp
 
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include <SDL2/SDL.h>
+
 #include "constants.hpp"
 using namespace std;
 
@@ -17,6 +18,7 @@ enum TILE_TYPE {
 };
 
 const int resourceValues[5] = { 0, 10, 50, 150, 500 };
+const SDL_Color *resourceColors[5] = { &BROWN, &DARK_GREY };
 
 class Block {
 private:
@@ -26,13 +28,14 @@ private:
     int _x;
     int _y;
     
-    enum TILE_TYPE _type;
-    
-    const SDL_Color *_color = &GREEN;
+    enum TILE_TYPE _type = AIR;
     
 public:
     Block();
     Block(int x, int y, enum TILE_TYPE type);
+    
+    void setX(int x);
+    void setY(int y);
     
     void setType(enum TILE_TYPE type);
     
@@ -41,10 +44,6 @@ public:
 
 class Map {
 private:
-    const int _WIDTH = MAP_WIDTH;
-    const int _HEIGHT = MAP_HEIGHT;
-    const int _GROUND_HEIGHT = GROUND_HEIGHT;
-    
     enum TILE_TYPE _rawMap[MAP_HEIGHT][MAP_WIDTH];   // store all map data read from map file
     Block _map[MAP_HEIGHT][MAP_WIDTH];               // store the map as block objects
     
@@ -59,7 +58,7 @@ public:
     Block *getBlock(int x, int y);
     void destroyBlock(int x, int y);
     
-    void draw(SDL_Renderer *renderer, int startY, int endY);
+    void draw(SDL_Renderer *renderer, int startY = 0, int endY = MAP_HEIGHT);
 };
 
 #endif
