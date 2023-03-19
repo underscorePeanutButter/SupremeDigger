@@ -15,6 +15,8 @@ void cleanUp();
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 600;
 
+const int FPS = 60;
+
 int main() {
     if (!init()) {
         return -1;
@@ -24,6 +26,8 @@ int main() {
     
     bool running = true;
     while (running) {
+        int startTicks = SDL_GetTicks();
+        
         while (SDL_PollEvent(&e)) {
             if (e.type == SDL_QUIT) {
                 running = false;
@@ -39,6 +43,13 @@ int main() {
         drawGame(renderer);
         
         SDL_RenderPresent(renderer);
+        
+        int totalTicks = SDL_GetTicks() - startTicks;
+        
+        printf("FPS: %d\n", 1000 / totalTicks);
+        if (totalTicks < 1000 / FPS) {
+            SDL_Delay(1000 / FPS - totalTicks);
+        }
     }
 }
 

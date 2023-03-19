@@ -12,12 +12,24 @@ Block::Block(int x, int y, enum TILE_TYPE type) {
     _type = type;
 }
 
+double Block::getX() {
+    return _x;
+}
+
+double Block::getY() {
+    return _y;
+}
+
 void Block::setX(int x) {
     _x = x;
 }
 
 void Block::setY(int y) {
     _y = y;
+}
+
+int Block::getType() {
+    return _type;
 }
 
 void Block::setType(enum TILE_TYPE type) {
@@ -27,9 +39,9 @@ void Block::setType(enum TILE_TYPE type) {
 void Block::draw(SDL_Renderer *renderer) {
     // create rect and fill with _color
     if (_type != AIR) {
-        const SDL_Color *color = resourceColors[_type];
+        const SDL_Color color = resourceColors[_type];
         
-        SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
+        SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
         SDL_Rect blockRect = { _x, _y, _WIDTH, _HEIGHT };
         
         SDL_RenderFillRect(renderer, &blockRect);
@@ -38,8 +50,8 @@ void Block::draw(SDL_Renderer *renderer) {
 
 Map::Map() {
     // fill map with dirt
-    for (int y = 0; y < MAP_HEIGHT; y++) {
-        for (int x = 0; x < MAP_WIDTH; x++) {
+    for (int y = 0; y < 400; y++) {
+        for (int x = 0; x < 50; x++) {
             _map[y][x].setX(x * TILE_SIZE);
             _map[y][x].setY(y * TILE_SIZE);
             
@@ -106,7 +118,7 @@ void Map::destroyBlock(int x, int y) {
 
 void Map::draw(SDL_Renderer *renderer, int startY, int endY) {
     for (int y = startY; y < endY && y < MAP_HEIGHT; y++) {
-        for (int x = 0; x < MAP_WIDTH; x++) {
+        for (int x = 0; x < 50; x++) {
             _map[y][x].draw(renderer);
         }
     }

@@ -3,17 +3,26 @@
 
 #include <SDL2/SDL.h>
 
-#define MAP_WIDTH 50
-#define MAP_HEIGHT 400
+constexpr int TILE_SIZE = 16;
+constexpr int GROUND_HEIGHT = 5;
 
-extern const int TILE_SIZE;
+constexpr int MAP_WIDTH = 50;
+constexpr int MAP_HEIGHT = 400;
 
-extern const int GROUND_HEIGHT;
+constexpr double GRAVITY = 0.1;
+constexpr double TERMINAL_VELOCITY = 2;
 
-extern const SDL_Color RED;
-extern const SDL_Color GREEN;
-extern const SDL_Color BLUE;
-extern const SDL_Color BROWN;
-extern const SDL_Color DARK_GREY;
+constexpr SDL_Color RED = { 0xFF, 0x00, 0x00, 0xFF };
+constexpr SDL_Color GREEN = { 0x00, 0xFF, 0x00, 0xFF };
+constexpr SDL_Color BLUE = { 0x00, 0x00, 0xFF, 0xFF };
+constexpr SDL_Color BROWN = { 0x80, 0x60, 0x00, 0xFF };
+constexpr SDL_Color DARK_GREY = { 0x4A, 0x49, 0x48, 0xFF };
+
+enum Direction {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+};
 
 #endif

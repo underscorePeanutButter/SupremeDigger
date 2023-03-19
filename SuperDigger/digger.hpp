@@ -5,7 +5,13 @@
 #include <SDL2/SDL.h>
 
 #include "constants.hpp"
+#include "block.hpp"
 using namespace std;
+
+typedef struct MapCollisionStruct {
+    Block *block;
+    int direction;
+} MapCollisionStruct;
 
 class Digger {
 private:
@@ -23,10 +29,14 @@ private:
     double _maxBattery = 100;
     double _battery = 100;
     
-    // movement speed
+    // movement
+    const double _FRICTION = 0.1;
+    
     double _groundSpeed = 1;
     double _airSpeed = 0.75;
     double _digSpeed = 0.5;
+    
+    bool _grounded = false;
     
     // appearance
     const SDL_Color *_color = &RED;
@@ -43,6 +53,11 @@ public:
     
     void accelerate(double x, double y);
     void stop();
+    
+    int collideBlock(Block *block);
+    MapCollisionStruct *collideMap(Map *map);
+    
+    bool update(const Uint8 *keyboardState, Map *map);
     
     void draw(SDL_Renderer *renderer);
 };
