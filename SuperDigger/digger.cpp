@@ -51,16 +51,15 @@ int Digger::collideBlock(Block *block) {
     bool movingUp = false;
     bool movingDown = false;
     
-    // check for left/right collisiosn
-    if (_y + _vY > block->getY() - _HEIGHT + 1 &&
-        _y + _vY < block->getY() + _HEIGHT - 1) {
-        // within this if statement, we assume that the player is aligned on the Y-axis
+    if (_y + _vY + _HEIGHT > block->getY() &&
+        _y + _vY < block->getY() + block->getHeight()) {
+        // player is aligned on y axis
         alignedY = true;
     }
     
-    if (_x + _vX > block->getX() - _WIDTH + 1 &&
-        _x + _vX < block->getX() + _WIDTH - 1) {
-        // within this if statement, we assume that the player is aligned on the X-axis
+    if (_x + _vX + _WIDTH > block->getX() &&
+        _x + _vX < block->getX() + block->getWidth()) {
+        // player is aligned on x axis
         alignedX = true;
     }
     
@@ -168,6 +167,7 @@ bool Digger::update(const Uint8 *keyboardState, Map *map) {
         }
         
         delete collisionResult;
+        
     }
     
     _x += _vX;

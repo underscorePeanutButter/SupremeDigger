@@ -34,6 +34,9 @@ public:
     Block();
     Block(int x, int y, enum TILE_TYPE type);
     
+    int getWidth();
+    int getHeight();
+    
     double getX();
     double getY();
     

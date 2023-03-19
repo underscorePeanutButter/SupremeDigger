@@ -12,6 +12,14 @@ Block::Block(int x, int y, enum TILE_TYPE type) {
     _type = type;
 }
 
+int Block::getWidth() {
+    return _WIDTH;
+}
+
+int Block::getHeight() {
+    return _HEIGHT;
+}
+
 double Block::getX() {
     return _x;
 }
@@ -118,7 +126,7 @@ void Map::destroyBlock(int x, int y) {
 
 void Map::draw(SDL_Renderer *renderer, int startY, int endY) {
     for (int y = startY; y < endY && y < MAP_HEIGHT; y++) {
-        for (int x = 0; x < 50; x++) {
+        for (int x = 0; x < MAP_WIDTH; x++) {
             _map[y][x].draw(renderer);
         }
     }
