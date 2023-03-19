@@ -3,6 +3,7 @@
 
 #include <cstdio>
 #include <SDL2/SDL.h>
+#include <vector>
 
 #include "constants.hpp"
 #include "block.hpp"
@@ -55,7 +56,7 @@ public:
     void stop();
     
     int collideBlock(Block *block);
-    MapCollisionStruct *collideMap(Map *map);
+    vector<MapCollisionStruct *> collideMap(Map *map);
     
     bool update(const Uint8 *keyboardState, Map *map);
     

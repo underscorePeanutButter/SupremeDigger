@@ -36,9 +36,7 @@ int main() {
         
         const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
         
-        if (keyboardState[SDL_SCANCODE_RETURN]) {
-            updateGame(keyboardState);
-        }
+        updateGame(keyboardState);
         
         SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
         SDL_RenderClear(renderer);
@@ -49,7 +47,7 @@ int main() {
         
         int totalTicks = SDL_GetTicks() - startTicks;
         
-//        printf("FPS: %d\n", 1000 / totalTicks);
+        printf("FPS: %d\n", 1000 / totalTicks);
         if (totalTicks < 1000 / FPS) {
             SDL_Delay(1000 / FPS - totalTicks);
         }

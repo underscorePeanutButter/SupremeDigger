@@ -1,4 +1,5 @@
 #include "digger.hpp"
+using namespace std;
 
 // constructor and deconstructor
 Digger::Digger() {
@@ -50,7 +51,7 @@ int Digger::collideBlock(Block *block) {
     bool movingLeft = false;
     bool movingUp = false;
     bool movingDown = false;
-    
+           
     if (_y + _vY + _HEIGHT > block->getY() &&
         _y + _vY < block->getY() + block->getHeight()) {
         // player is aligned on y axis
@@ -100,8 +101,8 @@ int Digger::collideBlock(Block *block) {
     return -1;
 }
 
-MapCollisionStruct *Digger::collideMap(Map *map) {
-    MapCollisionStruct *newStruct = new MapCollisionStruct;
+vector<MapCollisionStruct *> Digger::collideMap(Map *map) {
+    vector<MapCollisionStruct *> collisions;
     
     for (int y = 0; y < MAP_HEIGHT; y++) {
         for (int x = 0; x < MAP_WIDTH; x++) {
@@ -109,19 +110,22 @@ MapCollisionStruct *Digger::collideMap(Map *map) {
             int collisionResult = collideBlock(block);
             
             if (collisionResult >= 0) {
+                MapCollisionStruct *newStruct = new MapCollisionStruct;
+                
                 newStruct->block = block;
                 newStruct->direction = collisionResult;
                 
-                return newStruct;
+                collisions.push_back(newStruct);
             }
         }
     }
     
-    delete newStruct;
-    return NULL;
+    return collisions;
 }
 
 bool Digger::update(const Uint8 *keyboardState, Map *map) {
+    _grounded = false;
+    
     if (keyboardState[SDL_SCANCODE_LEFT]) {
         accelerate(-_groundSpeed / 10, 0);
     }
@@ -148,27 +152,28 @@ bool Digger::update(const Uint8 *keyboardState, Map *map) {
         _vX = -_groundSpeed;
     }
     
-    if (!_grounded) {
-        _vY += GRAVITY;
-    }
+    _vY += GRAVITY;
     
     if (_vY > TERMINAL_VELOCITY) {
         _vY = TERMINAL_VELOCITY;
     }
     
-    MapCollisionStruct *collisionResult = collideMap(map);
-    if (collisionResult) {
-        if (collisionResult->block->getType() != AIR) {
-            if (collisionResult->direction == UP) {
+    vector<MapCollisionStruct *> collisionResult = collideMap(map);
+    for (MapCollisionStruct *collisionStruct : collisionResult) {
+        if (collisionStruct->block->getType() != AIR) {
+            if (collisionStruct->direction == UP) {
                 _vY = 0;
-                _y = collisionResult->block->getY() - _HEIGHT;
+                _y = (_y < collisionStruct->block->getY() - _HEIGHT) ? _y : collisionStruct->block->getY() - _HEIGHT;
                 _grounded = true;
             }
         }
         
-        delete collisionResult;
+        delete collisionStruct;
         
     }
+    // unsure if this is needed or not... better safe than sorry, i guess :/
+    // okay no this seems to not be needed, and actually breaks the program due to a malloc error :))
+    // collisionResult.~vector();
     
     _x += _vX;
     _y += _vY;
